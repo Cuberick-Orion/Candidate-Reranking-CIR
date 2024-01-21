@@ -1,3 +1,4 @@
+import os
 import multiprocessing
 import random
 from pathlib import Path
@@ -146,3 +147,61 @@ def save_model(name: str, cur_epoch: int, model_to_save: nn.Module, training_pat
         model_name: model_to_save.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
     }, str(models_path / f'{name}.pt'))
+
+def get_model_path(model_path, dataset):
+    """
+    helper function to obtain the full model path
+
+    Assume the actual checkpoint path to be like:
+    (for FashionIQ)  models/<EXP_FOLDER_NAME>/saved_models/blip.pt
+    (for CIRR)       models/<EXP_FOLDER_NAME>/saved_models/blip_mean.pt
+    for both stageI and stageII.
+
+    :param model_path: the <EXP_FOLDER_NAME> string, this function will then complete the rest
+    :param dataset: either 'cirr' or 'fashioniq'
+    """
+    if 'models/' not in model_path[:7]:
+        # prepend
+        model_path = 'models/' + model_path
+        assert os.path.exists(model_path), RuntimeError(f"case 0 model_path do not exists at {model_path}")
+    if '.pt' not in model_path:
+        # append
+        if dataset == 'fashioniq':
+            model_path = model_path + '/saved_models/blip.pt' 
+        if dataset == 'cirr':
+            model_path = model_path + '/saved_models/blip_mean.pt'
+        assert os.path.exists(model_path), RuntimeError(f"case 1 model_path do not exists at {model_path}")
+    else:
+        # should be full path
+        assert os.path.exists(model_path), RuntimeError(f"case 2 model_path do not exists at {model_path}")
+    print(f"model path processed as {model_path}")
+    return model_path
+
+def get_top_k_path(exp_name, dataset):
+    """
+    helper function to obtain full top-k path down to the pt file
+    this function associates a pre-defined stageI experiment name with the top-k file path
+
+    if no pre-defined associations are found, will assume the input string is the top-k file path and return it
+    """
+    
+    fiq_possible_top_ks = {
+        'BLIP_stageI_b512_2e-5_cos20': 'models/stage1/fashionIQ/fiq_top_200_val_DTYPE.pt',
+    }
+    cirr_possible_top_ks = {
+        'BLIP_stageI_b512_2e-5_cos10': 'models/stage1/CIRR/cirr_top_200_val.pt',
+    }
+    if exp_name is None:
+        return None
+    if dataset == 'fashioniq':
+        try:
+            return fiq_possible_top_ks[exp_name]
+        except: # if no association, return raw
+            assert os.path.exists(exp_name)
+            return exp_name
+    if dataset == 'cirr':
+        try:
+            return cirr_possible_top_ks[exp_name]
+        except: # if no association, return raw
+            assert os.path.exists(exp_name)
+            return exp_name

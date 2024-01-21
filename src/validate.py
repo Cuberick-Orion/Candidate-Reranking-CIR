@@ -23,37 +23,7 @@ import time
 from rich import print
 
 from data_utils import squarepad_transform, FashionIQDataset, targetpad_transform, CIRRDataset
-from utils import extract_index_features, collate_fn, device
-
-def get_model_path(model_path, dataset, stage1=False):
-    '''
-    helper function to obtain full model path
-
-    Assume the actual checkpoint path to be like:
-    (for FashionIQ)  models/<EXP_FOLDER_NAME>/saved_models/blip.pt
-    (for CIRR)       models/<EXP_FOLDER_NAME>/saved_models/blip_mean.pt
-    for both stageI and stageII.
-
-    You can only provide the <EXP_FOLDER_NAME> string, this function can complete the rest.
-    '''
-    if model_path is None:
-        return None
-    if 'models/' not in model_path[:7]:
-        # prepend
-        model_path = 'models/' + model_path
-        assert os.path.exists(model_path), RuntimeError(f"case 0 model_path do not exists at {model_path}")
-    if '.pt' not in model_path:
-        # append
-        if dataset == 'fashioniq':
-            model_path = model_path + '/saved_models/blip.pt' if stage1 else model_path + '/saved_models/tuned_blip_best.pt'
-        if dataset == 'cirr':
-            model_path = model_path + '/saved_models/blip_mean.pt' if stage1 else model_path + '/saved_models/tuned_blip_mean.pt'
-        assert os.path.exists(model_path), RuntimeError(f"case 1 model_path do not exists at {model_path}")
-    else:
-        # should be full path
-        assert os.path.exists(model_path), RuntimeError(f"case 2 model_path do not exists at {model_path}")
-    print(f"model path processed as {model_path}")
-    return model_path
+from utils import extract_index_features, collate_fn, device, get_model_path
 
 
 def compute_fiq_val_metrics(relative_val_dataset: FashionIQDataset,

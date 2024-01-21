@@ -20,51 +20,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from data_utils import CIRRDataset, targetpad_transform, squarepad_transform, base_path
-from utils import extract_index_features, device
-
-
-def get_model_path(model_path):
-    '''
-    helper function to obtain full model path
-
-    Assume the actual checkpoint path to be like:
-    (for CIRR)       models/<EXP_FOLDER_NAME>/saved_models/blip_mean.pt
-    for both stageI and stageII.
-
-    You can only provide the <EXP_FOLDER_NAME> string, this function can complete the rest.
-    '''
-    if 'models/' not in model_path[:7]:
-        # prepend
-        model_path = 'models/' + model_path
-        assert os.path.exists(model_path), RuntimeError(f"case 0 model_path do not exists at {model_path}")
-    if '.pt' not in model_path:
-        # append
-        model_path = model_path + '/saved_models/blip_mean.pt'
-        assert os.path.exists(model_path), RuntimeError(f"case 1 model_path do not exists at {model_path}")
-    else:
-        # should be full path
-        assert os.path.exists(model_path), RuntimeError(f"case 2 model_path do not exists at {model_path}")
-    print(f"model path processed as {model_path}")
-    return model_path
-
-def get_top_k_path(exp_name):
-    '''
-    helper function to obtain full top-k path down to the pt file
-    this function associates a pre-defined stageI experiment name with the top-k file path
-
-    if no pre-defined associations are found, will assume the input string is the top-k file path and return it
-    '''
-    cirr_possible_top_ks = {
-        'BLIP_stageI_b512_2e-5_cos10': 'deploy_ckpts/models/stage1/CIRR/cirr_top_200_test1.pt',
-    }
-    if exp_name is None:
-        return None
-    
-    try:
-        return cirr_possible_top_ks[exp_name]
-    except: # if no association, return raw
-        assert os.path.exists(exp_name)
-        return exp_name
+from utils import extract_index_features, device, get_model_path, get_top_k_path
 
 
 def generate_cirr_test_submissions(model: torch.nn.Module, model_stage1: torch.nn.Module, preprocess: callable, file_name: str):
@@ -234,11 +190,11 @@ def main():
                         help="top-k value.")
     args = parser.parse_args()
 
-    args.stage1_path = get_model_path(args.stage1_path,)
-    args.stage2_path = get_model_path(args.stage2_path,)
+    args.stage1_path = get_model_path(args.stage1_path, 'cirr')
+    args.stage2_path = get_model_path(args.stage2_path, 'cirr')
 
     global TOP_K_PATH
-    TOP_K_PATH = get_top_k_path(args.top_k_path)
+    TOP_K_PATH = get_top_k_path(args.top_k_path, 'cirr')
     print(f"Top-K pt file loaded at {TOP_K_PATH}")
     global K_VALUE
     K_VALUE = int(args.k)

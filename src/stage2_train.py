@@ -26,67 +26,8 @@ from data_utils import base_path, squarepad_transform, FashionIQDataset, targetp
 from blip_stage1 import blip_stage1
 from blip_stage2 import blip_stage2
 from utils import collate_fn, update_train_running_results, set_train_bar_description, save_model, \
-    extract_index_features, generate_randomized_fiq_caption, device
+    extract_index_features, generate_randomized_fiq_caption, device, get_model_path, get_top_k_path
 from validate_stage2 import compute_cirr_val_metrics, compute_fiq_val_metrics
-
-def get_model_path(model_path, dataset):
-    '''
-    helper function to obtain full model path, for the stageI model checkpoint
-
-    Assume the actual checkpoint path to be like:
-    (for FashionIQ)  models/<EXP_FOLDER_NAME>/saved_models/blip.pt
-    (for CIRR)       models/<EXP_FOLDER_NAME>/saved_models/blip_mean.pt
-    for both stageI and stageII.
-
-    You can only provide the <EXP_FOLDER_NAME> string, this function can complete the rest.
-    '''
-    if model_path is None:
-        return None
-    if 'models/' not in model_path[:7]:
-        # prepend
-        model_path = 'models/' + model_path
-        assert os.path.exists(model_path), RuntimeError(f"case 0 model_path do not exists at {model_path}")
-    if '.pt' not in model_path:
-        # append
-        if dataset == 'fashioniq':
-            model_path = model_path + '/saved_models/blip.pt'
-        if dataset == 'cirr':
-            model_path = model_path + '/saved_models/blip_mean.pt'
-        assert os.path.exists(model_path), RuntimeError(f"case 1 model_path do not exists at {model_path}")
-    else:
-        # should be full path
-        assert os.path.exists(model_path), RuntimeError(f"case 2 model_path do not exists at {model_path}")
-    print(f"model path processed as {model_path}")
-    return model_path
-
-def get_top_k_path(exp_name, dataset):
-    '''
-    helper function to obtain full top-k path down to the pt file
-    this function associates a pre-defined stageI experiment name with the top-k file path
-
-    if no pre-defined associations are found, will assume the input string is the top-k file path and return it
-    '''
-
-    fiq_possible_top_ks = {
-        'BLIP_stageI_b512_2e-5_cos20': 'deploy_ckpts/models/stage1/fashionIQ/fiq_top_200_val_DTYPE.pt',
-    }
-    cirr_possible_top_ks = {
-        'BLIP_stageI_b512_2e-5_cos10': 'deploy_ckpts/models/stage1/CIRR/cirr_top_200_val.pt',
-    }
-    if exp_name is None:
-        return None
-    if dataset == 'fashioniq':
-        try:
-            return fiq_possible_top_ks[exp_name]
-        except: # if no association, return raw
-            assert os.path.exists(exp_name)
-            return exp_name
-    if dataset == 'cirr':
-        try:
-            return cirr_possible_top_ks[exp_name]
-        except: # if no association, return raw
-            assert os.path.exists(exp_name)
-            return exp_name
 
 
 def cosine_lr_schedule(optimizer, epoch, max_epoch, init_lr, min_lr):
