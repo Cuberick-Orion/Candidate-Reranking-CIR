@@ -193,7 +193,7 @@ def main():
                         help="top-k value to be saved for test1 split. for CIRR: default 50.")
     args = parser.parse_args()
 
-    args.stage1_path = get_model_path(args.stage1_path, stage1=True)
+    args.stage1_path = get_model_path(args.stage1_path, 'cirr')
 
     global SAVE_TOPK
     SAVE_TOPK = args.save_topk
