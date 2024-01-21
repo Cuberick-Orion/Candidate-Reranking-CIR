@@ -25,36 +25,9 @@ import math
 from data_utils import base_path, squarepad_transform, FashionIQDataset, targetpad_transform, CIRRDataset
 from blip_stage1 import blip_stage1
 from utils import collate_fn, update_train_running_results, set_train_bar_description, save_model, \
-    extract_index_features, generate_randomized_fiq_caption, device
+    extract_index_features, generate_randomized_fiq_caption, device, cosine_lr_schedule
 from validate import compute_cirr_val_metrics, compute_fiq_val_metrics
 
-
-def cosine_lr_schedule(optimizer, epoch, max_epoch, init_lr, min_lr):
-    """Decay the learning rate"""
-    lr = (init_lr - min_lr) * 0.5 * (1. + math.cos(math.pi * epoch / max_epoch)) + min_lr
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr
-    return lr
-
-def warmup_lr_schedule(optimizer, step, max_step, init_lr, max_lr):
-    """Warmup the learning rate"""
-    lr = min(max_lr, init_lr + (max_lr - init_lr) * step / max_step)
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr    
-    return lr
-
-def step_lr_schedule(optimizer, epoch, init_lr, min_lr, decay_rate):        
-    """Decay the learning rate"""
-    lr = max(min_lr, init_lr * (decay_rate**epoch))
-    for param_group in optimizer.param_groups:
-        param_group['lr'] = lr    
-    return lr
-
-def exp_lr_schedule(optimizer, epoch, gamma):
-    """Decay the learning rate"""
-    for param_group in optimizer.param_groups:
-        param_group['lr'] *= gamma
-    return None
 
 def stage1_training_fiq(train: bool,
         train_dress_types: List[str], val_dress_types: List[str],
