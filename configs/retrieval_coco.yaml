@@ -3,6 +3,7 @@ ann_root: 'annotation'
 dataset: 'coco'
 
 # set pretrained as a file path or an url
+# modified for CIR -- use the pre-trained model ckpt, instead of the task-specific finetuned one
 pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base.pth'
 # pretrained: 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/models/model_base_retrieval_coco.pth'
 
