@@ -111,7 +111,8 @@ See
 
  - [Step-by-step instruction on CIRR](Instructions_CIRR.md)
 
-##
+All experiments are conducted using one NVIDIA A100, in practice, we observe the maximum VRAM usage to be around 60G.
+
 
 > [!NOTE]
 > To reproduce our reported results, please first download the checkpoints and top-k files and save them to paths noted in  [DOWNLOAD.md](DOWNLOAD.md).
