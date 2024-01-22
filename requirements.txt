@@ -1,0 +1,8 @@
+torch
+torchvision
+torchaudio
+pandas
+comet_ml
+timm==0.4.12
+transformers==4.25.0
+fairscale==0.4.4
