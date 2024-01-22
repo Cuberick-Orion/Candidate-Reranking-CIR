@@ -1,4 +1,8 @@
 import os, socket
+'''
+Manually limiting the thread number for numpy
+this is recommended if your CPU has many threads
+'''
 num_numpy_threads = '8'
 os.environ['OPENBLAS_NUM_THREADS'] = num_numpy_threads
 os.environ['GOTO_NUM_THREADS'] = num_numpy_threads

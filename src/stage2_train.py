@@ -1,4 +1,8 @@
 import os, socket
+'''
+Manually limiting the thread number for numpy
+this is recommended if your CPU has many threads
+'''
 num_numpy_threads = '8'
 os.environ['OPENBLAS_NUM_THREADS'] = num_numpy_threads
 os.environ['GOTO_NUM_THREADS'] = num_numpy_threads
@@ -29,6 +33,7 @@ from utils import collate_fn, update_train_running_results, set_train_bar_descri
     extract_index_features, generate_randomized_fiq_caption, device, get_model_path, get_top_k_path, cosine_lr_schedule
 from validate_stage2 import compute_cirr_val_metrics, compute_fiq_val_metrics
 
+import warnings
 
 def classifier_training_fiq(train: bool,
                           train_dress_types: List[str], val_dress_types: List[str],
@@ -81,6 +86,7 @@ def classifier_training_fiq(train: bool,
     for param in model_stage1.parameters():
         param.requires_grad = False
 
+    # load the stageII model
     config = yaml.load(open('configs/nlvr.yaml', 'r'), Loader=yaml.Loader)
     model = blip_stage2(pretrained=config['pretrained'], image_size=config['image_size'], med_config='configs/med_config.json',
                     vit=config['vit'], vit_grad_ckpt=config['vit_grad_ckpt'], vit_ckpt_layer=config['vit_ckpt_layer'])
@@ -105,6 +111,7 @@ def classifier_training_fiq(train: bool,
         raise ValueError("Preprocess transform should be in ['squarepad', 'targetpad']")
 
     if not blip_img_tune and preprocess_val:
+        warnings.warn(f"preprocessing validation split features, not recommended by default -- only use this if your VRAM is sufficiently large.")
         model.eval()
         idx_to_dress_mapping = {}
         relative_val_datasets = []
@@ -380,6 +387,7 @@ def classifier_training_cirr(train: bool,
 
     # Define the validation datasets and extract the validation index features
     if not blip_img_tune and preprocess_val:
+        warnings.warn(f"preprocessing validation split features, not recommended by default -- only use this if your VRAM is sufficiently large.")
         model.eval()
         relative_val_dataset = CIRRDataset('val', 'relative', preprocess, load_topk=top_k_path, K=K)
         classic_val_dataset = CIRRDataset('val', 'classic', preprocess, load_topk=top_k_path, K=K)

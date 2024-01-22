@@ -1,4 +1,8 @@
 import os, socket
+'''
+Manually limiting the thread number for numpy
+this is recommended if your CPU has many threads
+'''
 num_numpy_threads = '8'
 os.environ['OPENBLAS_NUM_THREADS'] = num_numpy_threads
 os.environ['GOTO_NUM_THREADS'] = num_numpy_threads
@@ -28,6 +32,7 @@ from utils import collate_fn, update_train_running_results, set_train_bar_descri
     extract_index_features, generate_randomized_fiq_caption, device, cosine_lr_schedule
 from validate import compute_cirr_val_metrics, compute_fiq_val_metrics
 
+import warnings
 
 def stage1_training_fiq(train: bool,
         train_dress_types: List[str], val_dress_types: List[str],
@@ -81,7 +86,7 @@ def stage1_training_fiq(train: bool,
         raise ValueError("Preprocess transform should be in ['squarepad', 'targetpad']")
 
     if not blip_img_tune and preprocess_val:
-        print(f"Preprocessing validation image embeddings")
+        warnings.warn(f"preprocessing validation split features, not recommended by default -- only use this if your VRAM is sufficiently large.")
         model.eval()
 
         idx_to_dress_mapping = {}
@@ -335,7 +340,7 @@ def stage1_training_cirr(train: bool,
         raise ValueError("Preprocess transform should be in ['squarepad', 'targetpad']")
 
     if not blip_img_tune and preprocess_val:
-        print(f"Preprocessing validation image embeddings")
+        warnings.warn(f"preprocessing validation split features, not recommended by default -- only use this if your VRAM is sufficiently large.")
         model.eval()
 
         relative_val_dataset = CIRRDataset('val', 'relative', preprocess)
