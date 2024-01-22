@@ -13,7 +13,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 **News and upcoming updates**
 
-- [ ] **Jan-2024** Readme instructions released.
+- [x] **Jan-2024** Readme instructions released.
 - [x] **Jan-2024** Code and pre-trained checkpoints released.
 
 
@@ -111,7 +111,7 @@ See
 
  - [Step-by-step instruction on CIRR](Instructions_CIRR.md)
 
-All experiments are conducted using one NVIDIA A100, in practice, we observe the maximum VRAM usage to be around 60G.
+All experiments are conducted using one NVIDIA A100, in practice, we observe the maximum VRAM usage to be around 70G (CIRR, stage II training).
 
 
 > [!NOTE]
