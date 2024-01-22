@@ -1,7 +1,7 @@
 
 ## Candidate Set Re-ranking for Composed Image Retrieval
 
-<sup>Site navigation > [**Introduction**](#introduction) &nbsp;|&nbsp; [**Setting up**](#setting-up) &nbsp;|&nbsp; [**Usage**](#usage) &nbsp;|&nbsp; </sup>
+<sup>Site navigation > [**Introduction**](#introduction) &nbsp;|&nbsp; [**Setting up**](#setting-up) &nbsp;|&nbsp; [**Usage**](#usage) &nbsp;|&nbsp; [**Citation**](#citation) </sup>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2305.16304-red)](https://arxiv.org/abs/2305.16304)
 
