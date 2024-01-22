@@ -16,7 +16,6 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 - [ ] **Jan-2024** Readme instructions released.
 - [x] **Jan-2024** Code and pre-trained checkpoints released.
 
-##
 
 ## Introduction
 
@@ -111,6 +110,8 @@ See
  - [Step-by-step instruction on Fashion-IQ](Instructions_FashionIQ.md)
 
  - [Step-by-step instruction on CIRR](Instructions_CIRR.md)
+
+##
 
 > [!NOTE]
 > To reproduce our reported results, please first download the checkpoints and top-k files and save them to paths noted in  [DOWNLOAD.md](DOWNLOAD.md).
