@@ -357,7 +357,7 @@ def main():
                         help="top-k value to be saved. For Fashion-IQ: default 100; for CIRR: default 50.")
     args = parser.parse_args()
 
-    args.stage1_path = get_model_path(args.stage1_path, args.dataset.lower(), stage1=True)
+    args.stage1_path = get_model_path(args.stage1_path, args.dataset.lower())
 
     global SAVE_TOPK
     SAVE_TOPK = args.save_topk

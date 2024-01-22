@@ -198,7 +198,7 @@ def main():
     args.stage2_path = get_model_path(args.stage2_path, 'cirr')
 
     global TOP_K_PATH
-    TOP_K_PATH = get_top_k_path(args.top_k_path, 'cirr')
+    TOP_K_PATH = get_top_k_path(args.top_k_path, 'cirr', cirr_test=True)
     print(f"Top-K pt file loaded at {TOP_K_PATH}")
     global K_VALUE
     K_VALUE = int(args.k)

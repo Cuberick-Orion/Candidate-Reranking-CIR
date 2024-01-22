@@ -178,12 +178,17 @@ def get_model_path(model_path, dataset):
     print(f"model path processed as {model_path}")
     return model_path
 
-def get_top_k_path(exp_name, dataset):
+def get_top_k_path(exp_name, dataset, cirr_test=False):
     """
-    helper function to obtain full top-k path down to the pt file
+    helper function to obtain the top-k file path
+
     this function associates a pre-defined stageI experiment name with the top-k file path
 
-    if no pre-defined associations are found, will assume the input string is the top-k file path and return it
+    if no pre-defined associations are found, will assume the input string is the top-k file path and return itself
+
+    :param exp_name[str]: a pre-defined stageI experiment name
+    :param dataset[str]: either 'cirr' or 'fashioniq'
+    :param cirr_test[bool]: if requiring cirr test1-split
     """
     
     fiq_possible_top_ks = {
@@ -191,6 +196,7 @@ def get_top_k_path(exp_name, dataset):
     }
     cirr_possible_top_ks = {
         'BLIP_stageI_b512_2e-5_cos10': 'models/stage1/CIRR/cirr_top_200_val.pt',
+        'BLIP_stageI_b512_2e-5_cos10__test1': 'models/stage1/CIRR/cirr_top_200_test1.pt',
     }
     if exp_name is None:
         return None
@@ -202,7 +208,7 @@ def get_top_k_path(exp_name, dataset):
             return exp_name
     if dataset == 'cirr':
         try:
-            return cirr_possible_top_ks[exp_name]
+            return cirr_possible_top_ks[exp_name] if not cirr_test else cirr_possible_top_ks[exp_name+"__test1"]
         except: # if no association, return raw
             assert os.path.exists(exp_name)
             return exp_name
