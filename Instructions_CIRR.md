@@ -1,4 +1,4 @@
-## FashionIQ
+## CIRR
 
 Details on each step are as follows.
 
@@ -41,7 +41,7 @@ python src/validate.py --dataset CIRR \
  - the top-k files will be saved at `./models/<STAGE1_EXP_FOLDER>/`.
 
 <details>
-  <summary><b>Alternatively,</b> to reproduce our stage 1 results, click here</summary>
+  <summary><b>Alternatively,</b> to reproduce our stage 1 results</summary>
 &emsp; 
 
 ```bash
@@ -83,7 +83,7 @@ python src/stage2_train.py --dataset CIRR \
 
 
 <details>
-  <summary><b>Alternatively,</b> you can also use our extracted top-k file and/or our stage 1 checkpoint, click here</summary>
+  <summary><b>Alternatively,</b> to use our provided top-k file and/or our stage 1 checkpoint</summary>
 &emsp; 
 
 
@@ -119,7 +119,7 @@ python src/validate_stage2.py --dataset CIRR \
  - replace `<STAGE1_or_2_EXP_FOLDER>` with the previous experiment folders.
 
 <details>
-  <summary><b>Alternatively,</b> to reproduce our stage 2 results, click here</summary>
+  <summary><b>Alternatively,</b> to reproduce our stage 2 results</summary>
 &emsp; 
 
 ```bash
@@ -152,7 +152,7 @@ python src/cirr_test_submission.py --submission-name <NAME> \
  - the top-k files will be saved at `./models/<STAGE1_EXP_FOLDER>/`.
 
 <details>
-  <summary><b>Alternatively,</b> to use our stage 1 checkpoint, click here</summary>
+  <summary><b>Alternatively,</b> to use our stage 1 checkpoint</summary>
 &emsp; 
 
 ```bash
@@ -180,7 +180,7 @@ python src/cirr_test_submission_stage2.py --submission-name <NAME> \
  - the `json` files for submission will be saved at `./submission/`.
 
 <details>
-  <summary><b>Alternatively,</b> to use our checkpoints, click here</summary>
+  <summary><b>Alternatively,</b> to reproduce our results</summary>
 &emsp; 
 
 ```bash
