@@ -15,7 +15,9 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 [![arXiv](https://img.shields.io/badge/arXiv-2305.16304-red)](https://arxiv.org/abs/2305.16304)
 
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-fashion-iq)](https://paperswithcode.com/sota/image-retrieval-on-fashion-iq?p=candidate-set-re-ranking-for-composed-image) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-cirr)](https://paperswithcode.com/sota/image-retrieval-on-cirr?p=candidate-set-re-ranking-for-composed-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-fashion-iq)](https://paperswithcode.com/sota/image-retrieval-on-fashion-iq?p=candidate-set-re-ranking-for-composed-image)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-cirr)](https://paperswithcode.com/sota/image-retrieval-on-cirr?p=candidate-set-re-ranking-for-composed-image)
 
 
 </div>
