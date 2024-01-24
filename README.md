@@ -1,13 +1,26 @@
+<div align="center">
 
 ## Candidate Set Re-ranking for Composed Image Retrieval
 
+The official implementation for **Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder**.
+
+##
+
 <sup>Site navigation > [**Introduction**](#introduction) &nbsp;|&nbsp; [**Setting up**](#setting-up) &nbsp;|&nbsp; [**Usage**](#usage) &nbsp;|&nbsp; [**Citation**](#citation) </sup>
 
+
+
+[![text](https://img.shields.io/badge/paper-Transactions%20on%20Machine%20Learning%20Research%20(TMLR)-bfcaef)](#)[^1]
+[![text](https://img.shields.io/badge/reviews-OpenReview-8C1B13)](#)[^1]
 [![arXiv](https://img.shields.io/badge/arXiv-2305.16304-red)](https://arxiv.org/abs/2305.16304)
+
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-fashion-iq)](https://paperswithcode.com/sota/image-retrieval-on-fashion-iq?p=candidate-set-re-ranking-for-composed-image) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/candidate-set-re-ranking-for-composed-image/image-retrieval-on-cirr)](https://paperswithcode.com/sota/image-retrieval-on-cirr?p=candidate-set-re-ranking-for-composed-image)
 
-The official implementation for **Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder**.
+
+</div>
+
+[^1]: To be appeared, link will be updated shortly.
 
 ##
 
