@@ -10,7 +10,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 
 
-[![text](https://img.shields.io/badge/paper-Transactions%20on%20Machine%20Learning%20Research%20(TMLR)-bfcaef)](#)[^1]
+[![text](https://img.shields.io/badge/journal-Transactions%20on%20Machine%20Learning%20Research%20(TMLR)-bfcaef)](#)[^1]
 [![text](https://img.shields.io/badge/reviews-OpenReview-8C1B13)](#)[^1]
 [![arXiv](https://img.shields.io/badge/arXiv-2305.16304-red)](https://arxiv.org/abs/2305.16304)
 
