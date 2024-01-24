@@ -38,12 +38,12 @@ Archive:  candidate_rerank_ckpts.zip
 After downloading, please unzip and arrange the files per the file structure below.
 
 ```bash
-models
-├── stage1
-│   ├── CIRR
-│   └── fashionIQ
-└── stage2
-    ├── CIRR
-    └── fashionIQ
+📂 models
+ ├── 📂 stage1
+ │    ├── 📂 CIRR
+ │    └── 📂 fashionIQ
+ └── 📂 stage2
+      ├── 📂 CIRR
+      └── 📂 fashionIQ
 
 ```
