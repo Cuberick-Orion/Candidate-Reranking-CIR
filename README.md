@@ -134,6 +134,12 @@ All experiments are conducted using one NVIDIA A100, in practice, we observe the
 >
 > We provide all intermediate checkpoints and top-k files, so you could skip training steps and (for instance) develop directly on our Stage 2 model.
 
+## Recreating analysis plots
+
+See [`analysis_plot/plot_ranking_delta_vs_init_index.ipynb`](analysis_plot/plot_ranking_delta_vs_init_index.ipynb) on recreating Appendix A.4, Figure 8 in our paper.
+
+Note that the script requires the `labels` produced by the validation functions (`func: compute_fiq_val_metrics | compute_cirr_val_metrics`), which we have saved into `.pt` files and provided in the folder.
+
 ## Citation
 
 If you find this code useful for your research, please consider citing our work.
@@ -161,7 +167,7 @@ MIT License applied. In line with licenses from [Bi-BLIP4CIR](https://github.com
 
 ## Acknowledgement
 
-Our implementation is based on [BLIP4CIR](https://github.com/Cuberick-Orion/Bi-Blip4CIR), [CLIP4Cir](https://github.com/ABaldrati/CLIP4Cir) and [BLIP](https://github.com/salesforce/BLIP).
+Our implementation is based on [Bi-BLIP4CIR](https://github.com/Cuberick-Orion/Bi-Blip4CIR), [CLIP4Cir](https://github.com/ABaldrati/CLIP4Cir) and [BLIP](https://github.com/salesforce/BLIP).
 
 ## Contact
 
