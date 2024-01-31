@@ -6,7 +6,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 ##
 
-<sup>Site navigation > [**Introduction**](#introduction) &nbsp;|&nbsp; [**Setting up**](#setting-up) &nbsp;|&nbsp; [**Usage**](#usage) &nbsp;|&nbsp; [**Citation**](#citation) </sup>
+<sup>Site navigation > [**Introduction**](#introduction) &nbsp;|&nbsp; [**Setting up**](#setting-up) &nbsp;|&nbsp; [**Usage**](#usage) &nbsp;|&nbsp; [**Recreating analysis plots**](#Recreating-analysis-plots) &nbsp;|&nbsp; [**Citation**](#citation) </sup>
 
 
 
