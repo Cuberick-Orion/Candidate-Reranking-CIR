@@ -172,4 +172,4 @@ Our implementation is based on [Bi-BLIP4CIR](https://github.com/Cuberick-Orion/B
 ## Contact
 
  * Raise a new [GitHub issue](https://github.com/Cuberick-Orion/Candidate-Reranking-CIR/issues/new)
- * [Contact us](mailto:zheyuan.liu@anu.edu.au?subject=Regarding_Candidate-Reranking-CIR)
+ * [Contact us](mailto:zheyuan.david.liu@outlook.com?subject=Regarding_Candidate-Reranking-CIR)
