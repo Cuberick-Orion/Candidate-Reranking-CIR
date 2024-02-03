@@ -27,7 +27,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 **News and upcoming updates**
 
-- [x] **Jan-2024** Our paper has been accepted in TMLR, camera-ready version coming soon.
+- [x] **Jan-2024** Our paper has been accepted for publication in TMLR, camera-ready version coming soon.
 - [x] **Jan-2024** Readme instructions released.
 - [x] **Jan-2024** Code and pre-trained checkpoints released.
 
