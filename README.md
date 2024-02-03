@@ -21,7 +21,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 </div>
 
-[^1]: To be appeared, link will be updated shortly.
+[^1]: To appear, the link will be updated shortly.
 
 ##
 
