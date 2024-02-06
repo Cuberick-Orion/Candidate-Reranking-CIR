@@ -10,7 +10,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 
 
-[![paper](https://img.shields.io/badge/paper-Transactions%20on%20Machine%20Learning%20Research%20(TMLR)-112467)](#)[^1]
+[![paper](https://img.shields.io/badge/paper-Transactions%20on%20Machine%20Learning%20Research%20(TMLR)-112467)](https://openreview.net/pdf?id=fJAwemcvpL)
 [![openreview](https://img.shields.io/badge/reviews-OpenReview-8C1B13)](https://openreview.net/forum?id=fJAwemcvpL)
 [![arXiv](https://img.shields.io/badge/arXiv-2305.16304-00ff00)](https://arxiv.org/abs/2305.16304)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -21,12 +21,13 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 </div>
 
-[^1]: To appear, the link will be updated shortly.
+
 
 ##
 
 **News and upcoming updates**
 
+- [x] **Feb-2024** Camera-ready version released.
 - [x] **Jan-2024** Our paper has been accepted for publication in TMLR, camera-ready version coming soon.
 - [x] **Jan-2024** Readme instructions released.
 - [x] **Jan-2024** Code and pre-trained checkpoints released.
@@ -145,20 +146,22 @@ Note that the script requires the `labels` produced by the validation functions 
 If you find this code useful for your research, please consider citing our work.
 
 ```bibtex
-@article{liu2023candidate,
-    title     = {Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder},
-    author    = {Liu, Zheyuan and Sun, Weixuan and Teney, Damien and Gould, Stephen},
-    journal   = {arXiv preprint arXiv:2305.16304},
-    year      = {2023}
+@article{liu2024candidate,
+	title={Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder},
+	author={Zheyuan Liu and Weixuan Sun and Damien Teney and Stephen Gould},
+	journal={Transactions on Machine Learning Research},
+	issn={2835-8856},
+	year={2024},
+	url={https://openreview.net/forum?id=fJAwemcvpL}
 }
 
 @InProceedings{Liu_2024_WACV,
-    author    = {Liu, Zheyuan and Sun, Weixuan and Hong, Yicong and Teney, Damien and Gould, Stephen},
-    title     = {Bi-Directional Training for Composed Image Retrieval via Text Prompt Learning},
-    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
-    month     = {January},
-    year      = {2024},
-    pages     = {5753-5762}
+	author    = {Liu, Zheyuan and Sun, Weixuan and Hong, Yicong and Teney, Damien and Gould, Stephen},
+	title     = {Bi-Directional Training for Composed Image Retrieval via Text Prompt Learning},
+	booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+	month     = {January},
+	year      = {2024},
+	pages     = {5753-5762}
 }
 ```
 
