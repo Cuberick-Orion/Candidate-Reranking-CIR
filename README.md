@@ -27,7 +27,7 @@ The official implementation for **Candidate Set Re-ranking for Composed Image Re
 
 **News and upcoming updates**
 
-- [x] **Feb-2024** Camera-ready version released.
+- [x] **Feb-2024** Camera-ready version is now available (click the paper badge above to view).
 - [x] **Jan-2024** Our paper has been accepted for publication in TMLR, camera-ready version coming soon.
 - [x] **Jan-2024** Readme instructions released.
 - [x] **Jan-2024** Code and pre-trained checkpoints released.
@@ -147,12 +147,12 @@ If you find this code useful for your research, please consider citing our work.
 
 ```bibtex
 @article{liu2024candidate,
-	title={Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder},
-	author={Zheyuan Liu and Weixuan Sun and Damien Teney and Stephen Gould},
-	journal={Transactions on Machine Learning Research},
-	issn={2835-8856},
-	year={2024},
-	url={https://openreview.net/forum?id=fJAwemcvpL}
+	title   = {Candidate Set Re-ranking for Composed Image Retrieval with Dual Multi-modal Encoder},
+	author  = {Zheyuan Liu and Weixuan Sun and Damien Teney and Stephen Gould},
+	journal = {Transactions on Machine Learning Research},
+	issn    = {2835-8856},
+	year    = {2024},
+	url     = {https://openreview.net/forum?id=fJAwemcvpL}
 }
 
 @InProceedings{Liu_2024_WACV,
