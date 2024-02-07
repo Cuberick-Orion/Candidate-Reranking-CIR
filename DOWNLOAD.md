@@ -2,7 +2,10 @@
 
 We provide the pre-trained checkpoints (stages 1 and 2) and top-k files on both datasets.
 
-[click to download](https://1drv.ms/u/s!AgLqyV5O53gxuMoaukdjb9FA46bymQ?e=XQKUbh) (hosted on OneDrive), 7.637 GiB, `sha1sum: a5e29b35ceae4fcb3782b8fd9228121090ddef64`.
+[![Download](https://img.shields.io/badge/OneDrive-Download-red?style=flat-square&logo=microsoftonedrive)](https://1drv.ms/u/s!AgLqyV5O53gxuMoaukdjb9FA46bymQ?e=XQKUbh)
+
+
+7.637 GiB, `sha1sum: a5e29b35ceae4fcb3782b8fd9228121090ddef64`.
 
 ##
 
