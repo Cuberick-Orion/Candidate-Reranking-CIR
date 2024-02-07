@@ -137,11 +137,13 @@ All experiments are conducted using one NVIDIA A100, in practice, we observe the
 
 ## Recreating analysis plots
 
-See [`analysis_plot/plot_ranking_delta_vs_init_index.ipynb`](analysis_plot/plot_ranking_delta_vs_init_index.ipynb) on recreating Appendix A.4, Figure 8 in our paper.
+See [this jupyter notebook](analysis_plot/plot_ranking_delta_vs_init_index.ipynb) on recreating **Appendix A.4, Figure 8** in our paper.
 
 <p align="center">
   <img src="demo/figure_8.png" height="600" alt="figure_8_analysis_plot">
 </p>
+
+This figure demonstrates in detail the strength of the re-ranking stage (the indexes of positive targets are often brought forward significantly).
 
 Note that the script requires the `labels` produced by the validation functions (`func: compute_fiq_val_metrics | compute_cirr_val_metrics`), which we have saved into `.pt` files and provided in the folder.
 
